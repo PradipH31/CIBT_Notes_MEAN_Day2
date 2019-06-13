@@ -6,7 +6,7 @@ var viewPath = path.join(__dirname, "views");
 
 app.set('port', 9000);
 app.use('/static', express.static(path.join(__dirname, 'assets')));
-
+colors = ['red', 'green', 'blue'];
 app.get('/', (req, resp) => {
     resp.sendFile(viewPath + '/index.html');
 });
@@ -17,6 +17,10 @@ app.get('/customers', (req, resp) => {
 
 app.get('/customers/detail/:id', (req, resp) => {
     resp.send('<h1>Customer Detail</h1>Customer Id: ' + req.params.id);
+});
+
+app.get('/colors', (req, resp) => {
+    resp.send(colors);
 });
 
 app.get('/about', (req, resp) => {
