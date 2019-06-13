@@ -15,6 +15,10 @@ app.get('/customers', (req, resp) => {
     resp.send('<h1>Customers</h1>');
 });
 
+app.get('/customers/detail/:id', (req, resp) => {
+    resp.send('<h1>Customer Detail</h1>Customer Id: ' + req.params.id);
+});
+
 app.get('/about', (req, resp) => {
     resp.sendFile(viewPath + '/about.html');
 });
