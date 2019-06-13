@@ -8,27 +8,28 @@ var server = http.createServer(function(req, resp) {
 
     var method = req.method;
     console.log(method);
-    var servlet = new Servlet();
+    var servlet = new Servlet(req, resp);
     switch (method.toUpperCase()) {
         case 'GET':
-            servlet.doGet(req, resp);
+            servlet.doGet();
             break;
         case 'POST':
-            servlet.doPost(req, resp);
+            servlet.doPost();
             break;
     }
 
 });
 
-function Servlet() {
-    this.doGet = function(req, resp) {
+function Servlet(req, resp) {
+    this.doGet = function() {
         fs.readFile(viewPath + "/index.html", (err, data) => {
             resp.write(data);
             resp.end();
         });
     }
-    this.doPost = function(req, resp) {
+    this.doPost = function() {
         resp.write("<h1>Thank you for submitting</h1>");
+        resp.end();
     }
 }
 
