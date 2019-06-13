@@ -8,12 +8,13 @@ var server = http.createServer(function(req, resp) {
 
     var method = req.method;
     console.log(method);
+    var servlet = new Servlet();
     switch (method.toUpperCase()) {
         case 'GET':
-            doGet(req, resp);
+            servlet.doGet(req, resp);
             break;
         case 'POST':
-
+            servlet.doPost(req, resp);
             break;
     }
 
