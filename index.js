@@ -3,9 +3,12 @@ var path = require('path'),
     http = require('http');
 
 var port = 9000;
+var viewPath = path.join(__dirname, "views");
 var server = http.createServer(function(req, resp) {
-    resp.write("<h1>Hello from Node Server");
-    resp.end();
+    fs.readFile(viewPath + "/index.html", (err, data) => {
+        resp.write(data);
+        resp.end();
+    });
 });
 
 server.on('connection', (socket) => {
