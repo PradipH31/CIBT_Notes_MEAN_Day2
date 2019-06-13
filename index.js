@@ -28,7 +28,7 @@ app.get('/colors', (req, resp) => {
 });
 
 app.get('/about', (req, resp) => {
-    resp.sendFile(viewPath + '/about.html');
+    resp.redirect('/customers');
 });
 
 app.listen(app.get('port'), () => {
