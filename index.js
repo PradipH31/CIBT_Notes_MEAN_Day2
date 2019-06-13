@@ -1,13 +1,15 @@
-var express = require('express');
+var express = require('express'),
+    path = require('path');
 
 var app = express();
+var viewPath = path.join(__dirname, "views");
 
 app.get('/', (req, resp) => {
-    resp.send('<h1>Hello from Express Framework</h1>');
+    resp.sendFile(viewPath + '/index.html');
 });
 
 app.get('/about', (req, resp) => {
-    resp.send('<h1>About Us</h1>');
+    resp.sendFile(viewPath + '/about.html');
 });
 
 app.listen(9000, () => {
