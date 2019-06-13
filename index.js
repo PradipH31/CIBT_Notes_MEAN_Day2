@@ -8,6 +8,10 @@ var server = http.createServer(function(req, resp) {
     resp.end();
 });
 
+server.on('connection', (socket) => {
+    console.log('Connection request from %s', socket.remoteAddress);
+});
+
 server.listen(port, () => {
     console.log("Server is running at %d", port);
 })
