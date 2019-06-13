@@ -19,11 +19,16 @@ var server = http.createServer(function(req, resp) {
 
 });
 
-function doGet(req, resp) {
-    fs.readFile(viewPath + "/index.html", (err, data) => {
-        resp.write(data);
-        resp.end();
-    });
+function Servlet() {
+    this.doGet = function(req, resp) {
+        fs.readFile(viewPath + "/index.html", (err, data) => {
+            resp.write(data);
+            resp.end();
+        });
+    }
+    this.doPost = function(req, resp) {
+        resp.write("<h1>Thank you for submitting</h1>");
+    }
 }
 
 server.on('connection', (socket) => {
