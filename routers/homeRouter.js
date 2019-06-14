@@ -6,7 +6,7 @@ var router = express.Router();
 var colors = ['rec', 'green', 'blue'];
 
 router.get('/', (req, resp) => {
-    resp.sendFile(path.join(__dirname, '../views/index.html'));
+    resp.render('index');
 });
 
 router.get('/colors', (req, resp) => {
