@@ -1,19 +1,17 @@
 var express = require('express'),
     path = require('path');
 
+var controller = require('../controllers/homeController');
+var homeController = new controller.HomeController();
+
 var router = express.Router();
 
-var colors = ['rec', 'green', 'blue'];
-
 router.get('/', (req, resp) => {
-    resp.render('index', {
-        name: 'Pradip ko laptop',
-        colors: colors
-    });
+    homeController.index(req, resp);
 });
 
-router.get('/colors', (req, resp) => {
-    resp.send(colors);
+router.get('/about', (req, resp) => {
+    homeController.about(req, resp);
 });
 
 module.exports = router;
