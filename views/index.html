@@ -12,6 +12,18 @@
 
 <body>
     <div id="results"></div>
+    <script>
+        $(function() {
+            $.getJSON('/colors', function(data) {
+                var content = '<ul>';
+                $.each(data, function(i, o) {
+                    content += '<li>' + o + '</li>';
+                });
+                content += '</ul>';
+                $('#results').html(content);
+            });
+        });
+    </script>
 </body>
 
 </html>
