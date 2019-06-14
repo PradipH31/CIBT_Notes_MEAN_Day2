@@ -9,6 +9,8 @@ var app = express();
 app.set('port', 9000);
 app.use('/static', express.static(path.join(__dirname, 'assets')));
 
+app.set('view engine', 'ejs');
+
 app.use('/', homeRouter);
 
 var server = http.createServer(app);
