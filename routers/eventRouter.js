@@ -12,12 +12,9 @@ var db = mysql.createConnection({
 router.get('/', (req, resp) => {
     var sql = 'select * from tbl_events';
     db.query(sql, function(err, result) {
-        var content = '<ul>';
-        result.forEach((row, index) => {
-            content += '<li>' + row.event_name + '</li>';
+        resp.render('events/index', {
+            'events': result
         });
-        content += '</ul>'
-        resp.send(content);
     });
 });
 
