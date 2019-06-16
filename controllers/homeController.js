@@ -16,9 +16,13 @@ module.exports.HomeController = function() {
             // resp.send('Thank you for subscribing');
         },
         scrap: (req, resp) => {
-            request.get('https://www.jobsnepal.com', function(err, response) {
-                resp.send(response.body);
-            });
+            request.post({
+                    url: 'https://www.jobsnepal.com/simple-job-search',
+                    form: { Keywords: 'java' }
+                },
+                function(err, response) {
+                    resp.send(response.body);
+                });
         }
     };
 };
