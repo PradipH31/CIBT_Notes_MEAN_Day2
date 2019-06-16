@@ -1,3 +1,5 @@
+var request = require('request');
+
 module.exports.HomeController = function() {
     return {
         index: function(req, resp) {
@@ -12,6 +14,11 @@ module.exports.HomeController = function() {
         subscribe: (req, resp) => {
             resp.send('Thank you ' + req.body.subscriber);
             // resp.send('Thank you for subscribing');
+        },
+        scrap: (req, resp) => {
+            request.get('https://www.jobsnepal.com', function(err, response) {
+                resp.send(response.body);
+            });
         }
     };
 };

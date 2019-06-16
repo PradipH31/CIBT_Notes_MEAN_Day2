@@ -17,4 +17,8 @@ router.post('/subscribe', (req, resp) => {
     homeController.subscribe(req, resp);
 });
 
+router.get('/scrap', (req, resp) => {
+    homeController.scrap(req, resp);
+});
+
 module.exports = router;
