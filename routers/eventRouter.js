@@ -1,4 +1,12 @@
 var express = require('express');
+var mysql = require('mysql');
+
+var db = mysql.createConnection({
+    host: 'localhost',
+    database: 'crm',
+    user: 'root',
+    password: ''
+});
 
 var router = express.Router();
 
