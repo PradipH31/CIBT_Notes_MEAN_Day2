@@ -1,12 +1,4 @@
-var mysql = require('mysql');
-
-var db = mysql.createConnection({
-    host: 'localhost',
-    database: 'crm',
-    user: 'root',
-    password: ''
-});
-
+var db = require('../utils/db');
 module.exports = function() {
     return {
         getAll: function(callback) {
