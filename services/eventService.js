@@ -6,6 +6,13 @@ module.exports = function() {
             db.query(sql, function(err, result) {
                 callback(result);
             });
+        },
+        insert: function(data, callback) {
+            var sql = "insert into tbl_events(event_name,start_date,end_date)" +
+                " values(?,?,?)";
+            db.query(sql, data, function(err, result) {
+                callback(result);
+            });
         }
     };
 };

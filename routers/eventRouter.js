@@ -7,4 +7,8 @@ router.get('/', (req, resp) => {
     eventController.index(req, resp);
 });
 
+router.post('/', (req, resp) => {
+    eventController.add(req, resp);
+});
+
 module.exports = router;

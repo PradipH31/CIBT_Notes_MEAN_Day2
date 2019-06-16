@@ -9,6 +9,14 @@ module.exports.EventController = function() {
                     'events': result
                 });
             });
+        },
+        add: (req, resp) => {
+            var data = [
+                req.body.event_name, req.body.start_date, req.body.end_date
+            ];
+            service.insert(data, function(result) {
+                resp.redirect('/events');
+            });
         }
     }
 };
