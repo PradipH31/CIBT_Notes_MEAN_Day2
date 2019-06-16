@@ -7,12 +7,8 @@ var db = mysql.createConnection({
     password: ''
 });
 
-var sql = 'select * from tbl_events';
+var sql = 'select * from tbl_events where id=?';
 
-db.query(sql, function(err, result) {
+db.query(sql, [1], function(err, result) {
     console.log(result);
-    console.log('---------------------------');
-    result.forEach((row, i) => {
-        console.log(row.event_name);
-    });
 });
