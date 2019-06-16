@@ -1,12 +1,16 @@
 var express = require('express'),
     path = require('path'),
-    http = require('http');
+    http = require('http'),
+    bodyParser = require('body-parser');
 
 var app = express();
 
 app.set('port', 9000);
-app.use('/static', express.static(path.join(__dirname, 'assets')));
 app.set('view engine', 'ejs');
+
+app.use('/static', express.static(path.join(__dirname, 'assets')));
+app.use(bodyParser.json());;
+app.use(bodyParser.urlencoded({ extended: true }));
 
 var homeRouter = require('./routers/homeRouter');
 app.use('/', homeRouter);
