@@ -11,9 +11,13 @@ var db = mysql.createConnection({
 
 router.get('/', (req, resp) => {
     var sql = 'select * from tbl_events';
-    db.query(sql, function(err, result) {
-        resp.render('events/index', {
-            'events': result
+    var sqlCamp = 'select * from tbl_campaigns';
+    db.query(sql, function(err, event_result) {
+        db.query(sqlCamp, function(err, cmap_result) {
+            resp.render('events/index', {
+                'events': event_result,
+                'campaigns': cmap_result
+            });
         });
     });
 });
