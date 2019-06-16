@@ -8,6 +8,9 @@ module.exports.HomeController = function() {
         },
         about: function(req, resp) {
             resp.send('<h1>About Us</h1>')
+        },
+        subscribe: (req, resp) => {
+            resp.send('Thank you for subscribing');
         }
     };
 };
