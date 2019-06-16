@@ -13,7 +13,10 @@ app.use(bodyParser.json());;
 app.use(bodyParser.urlencoded({ extended: true }));
 
 var homeRouter = require('./routers/homeRouter');
+var eventRouter = require('./routers/eventRouter');
+
 app.use('/', homeRouter);
+app.use('/events', eventRouter);
 
 var server = http.createServer(app);
 
